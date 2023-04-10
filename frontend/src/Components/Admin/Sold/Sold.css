@@ -1,0 +1,26 @@
+.admin-sold{
+    display: flex;
+    margin-left: 270px;
+}
+
+.admin-sold-card{
+    align-items: center;
+    top: 30px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    left: 150px;
+}
+
+@media (max-width: 768px) {
+   
+    .admin-sold{
+        display: flex;
+        flex-direction: column;
+       margin-left: 21px !important;
+       margin-bottom: 10px;
+    }
+
+    .admin-sold-card{
+        left: 23px;
+    }
+}

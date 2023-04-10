@@ -1,0 +1,11 @@
+@media (max-width: 768px) {
+    .subscription{
+        flex-direction:column;
+        margin:0px !important
+    }
+
+    .suscription-card{
+    
+        left:20px !important
+    }
+}

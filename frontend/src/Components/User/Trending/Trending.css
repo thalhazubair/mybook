@@ -1,0 +1,59 @@
+
+.card-body-trending {
+ padding-bottom: 20px;
+  padding-top: 20px;
+  min-height: 180px;
+  min-width: 130px;
+  max-width: 160px;
+  margin-right: 5px;
+  background-color: rgb(212, 212, 212);
+}
+
+.card-trending{
+  margin-left: 0px;
+}
+
+.card-trending::-webkit-scrollbar {
+  display: none;
+} 
+
+img {
+  height: 150px;
+}
+
+.home-content {
+  display: flex;
+  flex-direction: column;
+  position: inherit;
+  margin-left: 270px;
+  padding-top: 80px;
+}
+
+h2.novel{
+  margin-top: 20px;
+}
+
+
+@media (max-width: 768px) {
+
+  .home-content {
+    display: flex;
+    flex-direction: column;
+    position: inherit;
+    margin-left: 0px;
+    padding-top: 80px;
+  }
+
+  h2.fantasy{
+    padding-left: 40px;
+  }
+  
+  h2.novel{
+    padding-left: 40px;
+    padding-top: 20px;
+
+  }
+  .card-trending{
+    margin-left: 34px;
+  }
+} 

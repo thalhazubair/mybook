@@ -1,0 +1,14 @@
+.bookreviews{
+    display: flex;
+    justify-content: center;
+    margin-top: 8rem;
+    margin-left: 270px;
+
+}
+
+@media (max-width: 768px) {
+
+    .bookreviews{
+      margin-left: 40px;
+    }
+}

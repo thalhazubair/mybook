@@ -1,0 +1,40 @@
+.admin-genre{
+    overflow-x: auto;
+    display: contents;
+ }
+
+ .genre-table-align{
+    margin-top: 50px;
+    
+ }
+
+ th.action {
+    display: flex;
+}
+
+.genre-action{
+    width: 10px;
+}
+
+@media (max-width: 768px) {
+
+    .admin-genre{
+       overflow-x: auto;
+       display: flex !important;
+
+    }
+
+    .admin-genre::-webkit-scrollbar {
+        display: none;
+      } 
+
+    .members-head{
+        margin-left: 0px !important;
+    }
+
+    .genre-table-align{
+        margin-top: 33px;
+        margin-left: 40px;
+    }
+    
+}

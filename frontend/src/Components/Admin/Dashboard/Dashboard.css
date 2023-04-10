@@ -1,0 +1,12 @@
+.admin-overview {
+    margin-top: 85px;
+    margin-left: 270px;
+}
+
+
+@media (max-width: 768px) {
+    .admin-overview{
+        margin-top: 20px;
+        margin-left: 40px;
+    }
+    }

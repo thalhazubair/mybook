@@ -1,0 +1,25 @@
+const express = require("express")
+const router = express.Router()
+const admin = require('../controller/adminController/adminController')
+const uploadImage = require('../config/cloudinary')
+const adminAuthentication = require('../middleware/jwtVerification')
+
+router.post('/login',admin.postLogin)
+router.get('/members',adminAuthentication.verifyAdminToken,admin.getMember)
+router.post('/add_genre',adminAuthentication.verifyAdminToken,admin.addGenre)
+router.get('/genre',adminAuthentication.verifyAdminToken,admin.getGenre)
+router.post('/add_auction',uploadImage,adminAuthentication.verifyAdminToken,admin.addAuction)
+router.get('/auction',adminAuthentication.verifyAdminToken,admin.getAuction)
+router.get('/genre_auction',adminAuthentication.verifyAdminToken,admin.getGenreAuction)
+router.post('/block/:id',adminAuthentication.verifyAdminToken,admin.postBlock)
+router.post('/unblock/:id',adminAuthentication.verifyAdminToken,admin.postUnBlock)
+router.post('/block_genre/:id',adminAuthentication.verifyAdminToken,admin.postBlockGenre)
+router.post('/unblock_genre/:id',adminAuthentication.verifyAdminToken,admin.postUnBlockGenre)
+router.get('/get_sold_book',adminAuthentication.verifyAdminToken,admin.getSoldBook)
+// router.post('/postbooks',adminAuthentication.verifyAdminToken,admin.postBooks)
+router.get('/books',adminAuthentication.verifyAdminToken,admin.getBooks)
+router.get('/my_book',adminAuthentication.verifyAdminToken,admin.getMyBook)
+router.post('/return_book',adminAuthentication.verifyAdminToken,admin.postReturnBook)
+
+
+module.exports = router

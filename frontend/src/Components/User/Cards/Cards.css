@@ -1,0 +1,102 @@
+
+
+.card-body-home {
+  
+  padding-bottom: 20px;
+  padding-top: 20px;
+  min-height: 180px;
+  min-width: 130px;
+  max-width: 160px;
+  margin-right: 5px;
+  background-color: rgb(255, 255, 255);
+  margin-bottom: 15px;
+}
+
+.card-home{
+  justify-content: center;
+  margin-left: 0px;
+}
+
+img {
+  height: 150px;
+}
+
+.home-content {
+  display: flex;
+  flex-direction: column;
+  position: inherit;
+  margin-left: 270px;
+  padding-top: 80px;
+}
+
+.home-search{
+  
+  font-family: monospace; 
+  font-size: 12px;
+  font-weight: 600;
+  height: 30px;
+}
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: black;
+  border: 1px solid #ffffff4b;
+  border-radius: 20px;
+  height: 40px;
+  color: white;
+  padding-right: 20px;
+  width: 100px;
+  padding-left: 10px;
+}
+
+select::-webkit-scrollbar {
+  width: 10px;
+}
+
+select::-webkit-scrollbar-thumb {
+  background-color: #ffffff4b;
+  border-radius: 10px;
+}
+
+select::-webkit-scrollbar-track {
+  background-color: black;
+  border-radius: 10px;
+}
+
+ @media (max-width: 768px) {
+
+  .card-home{
+    margin-left: 40px;
+    justify-content: center;
+  }
+
+  .home-content {
+    display: flex;
+    flex-direction: column;
+    position: inherit;
+    margin-left: 0px;
+    padding-top: 80px;
+  }
+
+  h2.fantasy{
+    padding-left: 40px;
+  }
+  
+  h2.novel{
+    padding-left: 56px;
+    padding-top: 20px;
+  }
+
+  .card-body-home {
+    padding-bottom: 20px;
+    padding-top: 20px;
+    min-height: 180px;
+    min-width: 132px;
+    max-width: 160px;
+    margin-right: 5px;
+    background-color: rgb(255, 255, 255);
+    margin-bottom: 10px;
+  }
+} 

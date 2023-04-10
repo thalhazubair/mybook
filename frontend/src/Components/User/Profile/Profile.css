@@ -1,0 +1,122 @@
+.profile-main{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-top: 50px;
+}
+
+.card-body-profile {
+    width: 210px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.card.profile-card-body {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.profile-btn {
+   
+  margin-top: 10px;
+  border-radius: 30px;
+  background: #FC9905;
+  font-family: monospace;
+  color: #FFFFFF;
+  font-size: 12px;
+  font-weight: 600;
+  border: none;
+  height: 22px;
+  width: 100px;
+}
+
+
+.card-body-stats {
+  margin-top: 10px;
+}
+
+.profile-action{
+ margin-bottom: auto;
+}
+
+.unstackable.two.fields {
+  display: flex;
+  flex-direction: row;
+  gap: 22px;
+}
+
+input[type="text"] {
+  width: 210px;
+  height: 26px;
+  padding: 5px;
+}
+
+.two.fields {
+  display: flex;
+  flex-direction: row;
+  gap: 22px;
+  margin-bottom: 12px;
+}
+
+form.ui.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #ffffc9;
+
+}
+
+.profile-icon {
+  font-size: 16px;
+  margin-right: 0px;
+}
+
+p.card-text.mb-1.h5.profile-text {
+  color: black;
+}
+
+@media (max-width: 768px) {
+  .unstackable.two.fields {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 22px;
+  }
+
+  .two.fields {
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+    margin-bottom: 0px;
+}
+
+form.ui.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #ffffc9;
+
+}
+
+.modal-content-profile{
+position: absolute;
+}
+
+
+.profile-icon {
+    font-size: 18px;
+    margin-right: 0px;
+}
+
+.profile-res{
+  margin-left: 40px !important;
+  width: 340px !important;
+}
+ 
+}

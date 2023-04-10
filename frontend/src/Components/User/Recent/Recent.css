@@ -1,0 +1,136 @@
+.recent{
+    padding-left: 270px;
+
+}
+
+.card-title.h5 {
+    color: #856868;
+    font-size: 19px;
+    font-family: none;
+}
+
+p.card-text {
+    color: #592828;
+    font-family: ui-serif;
+    font-size: 14px;
+    padding-top: 5px;
+    margin-bottom: 0px;
+}
+
+.card{
+    display: flex;
+    
+
+}
+
+.card-subtitle.h6 {
+    color: #423316;
+    font-size: 14px;
+    font-family: monospace;
+    padding-top: 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-height: 22px;
+    
+}
+
+img.card-img-top {
+    min-width: 100px;
+    height: 140px;
+}
+
+.card-button-recent{
+    display: flex;
+    gap: 15px;
+    height: 150px;
+}
+
+.card-body-recent {
+    width: 260px;
+}
+
+button.btn.btn-primary {
+   
+    margin-top: 8px;
+    border-radius: 30px;
+    background: #FC9905;
+    font-family: monospace;
+    color: #FFFFFF;
+    font-size: 12px;
+    font-weight: 600;
+    border: none;
+    height: 22px;
+    width: auto !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+p.return-date.card-text {
+    color: #3d382e;
+    padding-top: 5px;
+}
+
+p.user-rating.card-text {
+    padding-top: 5px;
+    color: #4aab36;
+}
+
+.recent-book{
+    margin-left: 60px;
+}
+
+.card-body-container {
+    flex: 1 1 auto;
+    height: 210px;
+    padding: 1.5rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 0px !important;
+    display: block;
+    border-radius: 10px;
+    padding-left: 0px;
+  }
+
+  .recent-main-card.card {
+    width: 264px;
+    margin-bottom: 20px
+}
+
+.recent-card-align{
+    display: flex;
+    justify-content: center;
+}
+
+.recent-card-read{
+    margin: 12px;
+}
+
+
+@media (max-width: 768px) {
+
+    .recent{
+        padding-left: 0px !important;
+        margin-left: 50px;
+    }
+    
+    /* .card-body {
+        width: 219px;
+    } */
+
+    .recent-book{
+        margin-left: 0px !important;
+    }
+
+    .recent-pad.col {
+        padding-left: 0px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .recent-card-read{
+        margin: 35px 0px 0px !important;
+    }
+}

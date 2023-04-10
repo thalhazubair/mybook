@@ -1,0 +1,238 @@
+/* .recent-duedate{
+    padding-left: 280px;
+
+}
+
+.card-title.h5 {
+    color: #856868;
+    font-size: 19px;
+    font-family: none;
+}
+
+p.card-text {
+    color: white;
+    font-family: ui-serif;
+    font-size: 14px;
+    padding-top: 5px;
+}
+
+.card{
+    display: flex;
+    padding-bottom: 30px;
+
+}
+
+.card-subtitle.h6 {
+    color: wheat;
+    font-size: 14px;
+    font-family: monospace;
+    padding-top: 5px;
+    
+}
+
+img.card-img-top {
+    width: 100px;
+    height: 140px;
+}
+
+.card-button-recent-duedate{
+    display: flex;
+    gap: 15px;
+}
+
+.card-body-duedate {
+    width: 210px;
+}
+
+button.btn.btn-primary {
+   
+    margin-top: 8px;
+    border-radius: 30px;
+    background: #FC9905;
+    font-family: monospace;
+    color: #FFFFFF;
+    font-size: 12px;
+    font-weight: 600;
+    border: none;
+    height: 22px;
+    width: 100px;
+}
+
+p.return-date.card-text {
+    color: #7b7a78;
+    padding-top: 5px;
+}
+
+p.user-rating.card-text {
+    padding-top: 5px;
+    color: #4aab36;
+}
+
+
+.duedate-main.col {
+    padding-left: 3px;
+    background-color: black;
+}
+
+@media (max-width: 768px) {
+
+    .recent-duedate{
+        padding-top: 40px;
+        padding-left: 0px !important;
+        margin-left: 45px;
+    }
+    
+    .card-body-duedate {
+        width: 219px;
+    }
+} */
+
+
+
+
+
+
+.recent{
+    padding-left: 270px;
+
+}
+
+.card-title.h5 {
+    color: #856868;
+    font-size: 19px;
+    font-family: none;
+}
+
+p.card-text {
+    color: #230d0d;
+    font-family: ui-serif;
+    font-size: 14px;
+    padding-top: 5px;
+    margin-bottom: 0px;
+}
+
+.card{
+    display: flex;
+    
+
+}
+
+.card-subtitle.h6 {
+    color: #4a3a1b;
+    font-size: 14px;
+    font-family: monospace;
+    padding-top: 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-height: 22px;
+    
+}
+
+img.card-img-top {
+    width: 100px;
+    height: 140px;
+}
+
+.card-button-recent{
+    display: flex;
+    gap: 15px;
+    height: 150px;
+}
+
+.card-body-recent {
+    width: 170px;
+}
+
+button.btn.btn-primary {
+   
+    margin-top: 8px;
+    border-radius: 30px;
+    background: #FC9905;
+    font-family: monospace;
+    color: #FFFFFF;
+    font-size: 12px;
+    font-weight: 600;
+    border: none;
+    height: 22px;
+    width: auto !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+p.return-date.card-text {
+    color: #2e291e;
+    padding-top: 5px;
+    line-height: 15px;
+}
+
+p.user-rating.card-text {
+    padding-top: 5px;
+    color: #4aab36;
+}
+
+.recent-book{
+    margin-left: 60px;
+}
+
+.duedate-body-container {
+    flex: 1 1 auto;
+    height: 180px;
+    padding: 1.5rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 0px !important;
+    display: block;
+    border-radius: 10px;
+    padding-left: 0px;
+  }
+
+  .recent-main-card.card {
+    width: 264px;
+    margin-bottom: 20px
+}
+
+.profile-center{
+    min-height: 180px;
+    min-width: 150px;
+    margin: 0px !important;
+    background-color: rgb(255, 255, 255);
+    border-radius: 13px;
+}
+
+.recent-card-align{
+    display: flex;
+    justify-content: center;
+}
+
+.duedate-card-read{
+    margin: 53px;
+}
+
+@media (max-width: 768px) {
+
+    .recent{
+        padding-left: 0px !important;
+        margin-left: 50px;
+    }
+    
+    /* .card-body {
+        width: 219px;
+    } */
+
+    .recent-book{
+        margin-left: 0px !important;
+    }
+
+    .recent-pad.col {
+        padding-left: 0px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .duedate-card-read{
+        margin: 35px 0px 0px !important;
+    }
+}

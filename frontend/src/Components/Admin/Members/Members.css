@@ -1,0 +1,35 @@
+.admin-members{
+    overflow-x: auto;
+    display: contents;
+ }
+
+.member-table-align{
+    margin-top: 90px;
+    margin-left: 270px;
+}
+
+@media (max-width: 768px) {
+    main.main-admin{
+        display: flex;
+        width: 44px !important;
+    }
+
+    .admin-members{
+       overflow-x: auto;
+       display: flex !important;
+
+    }
+
+    .admin-members::-webkit-scrollbar {
+        display: none;
+      } 
+
+    .members-head{
+        margin-left: 0px !important;
+    }
+
+    .member-table-align{
+        margin-top: 33px;
+        margin-left: 40px;
+    }
+}
