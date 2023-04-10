@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from "react";
 import './Otp.css'
-import axios from "axios";
-// import { useLocation } from "react-router-dom";
-// import axios from "../../../Axios/Axios";
 import {useNavigate, useLocation } from "react-router-dom";
-// import { message } from "antd";
+import { resendOtpAPI, verifyOtpAPI } from "../../../Services/userServices";
+
 
 function Otp() {
   const location = useLocation();
@@ -15,17 +13,16 @@ function Otp() {
   const navigate = useNavigate();
 
   const otpSubmit = (e) => {
-    e.preventDefault();
-    axios
-    .post("http://localhost:9000/verifyOtp", {
+    e.preventDefault()
+
+    verifyOtpAPI({
       otp : otp,
       fullname: location.state.fullname,
       username: location.state.username,
       email: location.state.email,
       phone: location.state.phone,
       password: location.state.password,
-    })
-    .then((response)=>{
+    }).then((response)=>{
       if(response.data.success){
         navigate('/')
       }
@@ -34,11 +31,10 @@ function Otp() {
   const resendOTP = () => {
     setMinutes(1);
     setSeconds(30);
-    axios
-      .post('http://localhost:9000/resendOtp', {
-        email: location.state.email,
-      })
-      .then((response) => {
+
+    resendOtpAPI({
+      email: location.state.email,
+    }).then((response) => {
         console.log(response);
       });
   };

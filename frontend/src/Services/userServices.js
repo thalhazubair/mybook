@@ -88,3 +88,11 @@ export const bidPaymentAPI = (data) => {
 export const userSignupAPI = (data) => {
     return axios.post('/signup',data) 
 }
+
+export const verifyOtpAPI = (data) => {
+    return axios.post('/verifyOtp',data) 
+}
+
+export const resendOtpAPI = (data) => {
+    return axios.post('/resendOtp',data) 
+}
