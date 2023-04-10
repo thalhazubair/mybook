@@ -84,3 +84,7 @@ export const getSoldBook = () => {
 export const bidPaymentAPI = (data) => {
     return axios.post('/bid_payment',data) 
 }
+
+export const userSignupAPI = (data) => {
+    return axios.post('/signup',data) 
+}

@@ -15,6 +15,7 @@ import {
 }
 from 'mdb-react-ui-kit';
 import { Link, useNavigate } from 'react-router-dom';
+import { userSignupAPI } from '../../../Services/userServices';
 
 function Login() {
 
@@ -49,16 +50,15 @@ function Login() {
 
   useEffect(() => {
     if (Object.keys(formErrors).length === 0 && isSubmit) {
-      axios
-        .post("http://localhost:9000/signup", {
-          fullname: formValues.fullname,
-          username: formValues.username,
-          email: formValues.email,
-          phone: formValues.phone,
-          password: formValues.password,
-          confirmpassword: formValues.confirmpassword
-        })
-        .then(function (response) {
+
+      userSignupAPI({
+        fullname: formValues.fullname,
+        username: formValues.username,
+        email: formValues.email,
+        phone: formValues.phone,
+        password: formValues.password,
+        confirmpassword: formValues.confirmpassword
+      }).then(function (response) {
           console.log(response);
           if (response.data.success) {
             navigate('/otp',{
