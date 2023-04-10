@@ -23,8 +23,8 @@ mongoose.connect(process.env.MONGO_URL, {
 
 bookReturnReminders();  
 
-app.use('/admin',adminRouter)
-app.use('/',userRouter)
+app.use('/backend/admin',adminRouter)
+app.use('/backend',userRouter)
 
 app.use(errorHandler)
 
