@@ -1,5 +1,5 @@
 import { Card, Button, Modal, message } from "antd";
-import { HeartFilled, HeartOutlined } from '@ant-design/icons'
+import { HeartFilled } from '@ant-design/icons'
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { MDBBadge } from "mdbreact";
 import { useEffect, useState } from "react";

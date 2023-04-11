@@ -80,8 +80,6 @@ function ToRead() {
               }}
               >
                 <img src={thumbnail} alt="" />
-                {/* <h3 className="book-title">{item.title}</h3>
-                <p className="book-author">{item.authors[0].name}</p> */}
               </div>
             );
           })}

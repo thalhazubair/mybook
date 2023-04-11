@@ -1,17 +1,6 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-// function getAuctionStatus(startdate) {
-//     const currentDate = Date.now();
-//     const auctionStartDate = new Date(startdate).getTime();
-    
-//     if (currentDate >= auctionStartDate) {
-//       return "Active";
-//     } else {
-//       return "Inactive";
-//     }
-//   }
-
 const auctionSchema = new Schema({
   title: {
     type: String,

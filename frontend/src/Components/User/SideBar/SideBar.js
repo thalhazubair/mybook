@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import {FaBars } from 'react-icons/fa'
+import {FcReadingEbook} from 'react-icons/fc'
 import { AiFillHome } from "react-icons/ai";
 import { BiStore, BiTrendingUp, BiHistory, BiBookReader } from 'react-icons/bi'
 import { BsCalendarDateFill } from 'react-icons/bs'
@@ -12,7 +12,7 @@ function SideBar({children}) {
     const menuItem = [
 
         {
-            path:'/home',
+            path:'/home', 
             name:'Home',
             icon:<AiFillHome/>,
         },
@@ -54,7 +54,7 @@ function SideBar({children}) {
             <div className='top_section'>
                 <h1 style={{display: isOpen ? "block" : "none"}} className='logo'>MyBook</h1>
                 <div style={{marginLeft: isOpen ? "50px" : "0px"}} className='bars'>
-                    <FaBars/>
+                    <FcReadingEbook/>
                 </div>
             </div>
             {

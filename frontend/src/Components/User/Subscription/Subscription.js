@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import './Subscription.css'
 import { message } from "antd";
 import { useNavigate } from "react-router-dom";

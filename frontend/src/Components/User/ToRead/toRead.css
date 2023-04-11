@@ -5,6 +5,7 @@ body{
   h1 span.toRead{
     padding-left: 280px;
     font-size: 27px;
+    font-weight: bold;
     position: inherit;
     color: aliceblue;
   }
@@ -40,9 +41,6 @@ body{
       cursor: pointer;
     }
     
-    /* .book-container:hover {
-      border: 1px solid #aaa;
-    } */
     
     .toReadBook-container img {
   

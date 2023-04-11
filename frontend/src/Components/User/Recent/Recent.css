@@ -52,7 +52,7 @@ img.card-img-top {
 
 button.btn.btn-primary {
    
-    margin-top: 8px;
+    margin: 5px auto;
     border-radius: 30px;
     background: #FC9905;
     font-family: monospace;
@@ -106,6 +106,11 @@ p.user-rating.card-text {
 
 .recent-card-read{
     margin: 12px;
+}
+
+.recent h2{
+    font-weight: bold;
+    color: #FFFFFF;
 }
 
 

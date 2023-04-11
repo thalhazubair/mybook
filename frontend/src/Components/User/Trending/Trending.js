@@ -59,7 +59,7 @@ function Trending() {
   </div>
 </div>
 <div class="container-fluid">
-    <h2 class="font-weight-light fantasy">Most Rented</h2>
+    <h2 class="trending-novel-rented">Most Rented</h2>
     <div class="d-flex flex-row overflow-auto flex-nowrap card-trending">
       {book.map((item, index)=>{
         let thumbnail = item.imagelinks
@@ -74,7 +74,7 @@ function Trending() {
 </div>
 
 <div class="container-fluid">
-    <h2 class="font-weight-light novel">Most Favourited</h2>
+    <h2 class="trending-novel-favourited">Most Favourited</h2>
     <div class="d-flex flex-row overflow-auto flex-nowrap card-trending">
       {favourite.map((item, index)=>{
         let thumbnail = item.imagelinks;

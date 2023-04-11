@@ -1,8 +1,6 @@
 
 .card-body-trending {
- padding-bottom: 20px;
-  padding-top: 20px;
-  min-height: 180px;
+ 
   min-width: 130px;
   max-width: 160px;
   margin-right: 5px;
@@ -18,7 +16,9 @@
 } 
 
 img {
-  height: 150px;
+  height: 180px;
+  object-fit: cover;
+  max-width: 130px;
 }
 
 .home-content {
@@ -26,11 +26,22 @@ img {
   flex-direction: column;
   position: inherit;
   margin-left: 270px;
-  padding-top: 80px;
+  padding-top: 60px;
 }
 
-h2.novel{
-  margin-top: 20px;
+.trending-novel-rented{
+  font-size: 36px; 
+  font-weight: bold;
+  color: aliceblue;
+  padding-bottom: 7px;
+}
+
+.trending-novel-favourited{
+  font-size: 36px; 
+  font-weight: bold;
+  color: aliceblue;
+  padding-bottom: 7px;
+  padding-top: 35px;
 }
 
 
@@ -44,16 +55,22 @@ h2.novel{
     padding-top: 80px;
   }
 
-  h2.fantasy{
-    padding-left: 40px;
-  }
-  
-  h2.novel{
-    padding-left: 40px;
-    padding-top: 20px;
+.trending-novel{
+  font-size: 36px; 
+  font-weight: bold;
+  color: aliceblue;
+  margin-left: 57px;
+}
 
-  }
   .card-trending{
     margin-left: 34px;
+  }
+
+  .trending-novel-rented{
+    margin-left: 32px;
+  }
+
+  .trending-novel-favourited{
+    margin-left: 32px;
   }
 } 

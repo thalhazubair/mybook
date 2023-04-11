@@ -35,7 +35,7 @@ function Market() {
   return (
     <>
     <h1>
-          <span className='toRead'>Ongoing Bid</span>
+          <span className='main-market-bid'>Ongoing Bid</span>
         </h1>
 
         <div className="market-center">
@@ -65,7 +65,7 @@ function Market() {
         </div>
 
         <h1>
-          <span className='toRead'>Upcoming Bids</span>
+          <span className='main-market-bid'>Upcoming Bids</span>
         </h1>
 
         <div className="market-center">

@@ -22,7 +22,6 @@ function Bidding() {
   const book = location.state.book;
   const bookId = book._id;
   const member = list.last_bidded_member[list.last_bidded_member.length - 1];
-  const thumbnail = book.image.url;
 
   const showModal = () => {
     setShow(true);
@@ -83,21 +82,20 @@ function Bidding() {
   // console.log(timerString);
 
   return (
-    <MDBCard style={{ alignItems: "center", margin: "auto", top: "30px"}}>
+    <MDBCard style={{ alignItems: "center", margin: "auto", top: "30px" }}>
       <div className="d-flex">
-      {book.image.map((img,index)=>(
-        <MDBCardImage
-        key={index}
-        position="top"
-        alt="..."
-        src={img.url}
-        style={{ width: "120px"}}
-        className={index % 2 === 0 ? "me-2" : ""}
-      />
-      ))}
+        {book.image.map((img, index) => (
+          <MDBCardImage
+            key={index}
+            position="top"
+            alt="..."
+            src={img.url}
+            style={{ width: "120px" }}
+            className={index % 2 === 0 ? "me-2" : ""}
+          />
+        ))}
       </div>
- 
-     
+
       <MDBCardBody
         className="bidding-card-body"
         style={{
