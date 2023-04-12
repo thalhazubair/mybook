@@ -6,6 +6,8 @@ import {
   MDBRow
 } from 'mdb-react-ui-kit';
 import "./Dashboard.css";
+import { BiLogOut } from 'react-icons/bi'
+import { useNavigate } from 'react-router-dom'
 import { myBookAPI } from '../../../Services/adminServices';
 import { getAuctionBookListAPI } from '../../../Services/userServices';
 
@@ -35,6 +37,13 @@ export default function Overview() {
 
   },[])
 
+  const navigate = useNavigate()
+
+  const handleLogOut = ()=> {
+      localStorage.removeItem('adminToken');
+      navigate("/admin")
+    }
+
   const premium = users.filter(obj => obj.plan === "Premium Plan")
   const blocked = users.filter(obj => obj.isBlocked === true)
   const rented = books.filter(obj => obj.status === "rented out")
@@ -42,7 +51,9 @@ export default function Overview() {
   const sold = auction.filter(obj => obj.status === "Sold")
 
   return (
+  
     <MDBRow className='admin-overview'>
+      <BiLogOut style={{margin:'10px auto'}} className='icon' onClick={handleLogOut}></BiLogOut>
       <MDBCol xl={4} lg={6} className='mb-4'>
         <MDBCard>
           <MDBCardBody>

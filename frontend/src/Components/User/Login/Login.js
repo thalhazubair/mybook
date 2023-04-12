@@ -24,7 +24,9 @@ function Login() {
     password: "",
   };
 
+  const [formErrors, setFormErrors] = useState({});
   const [formValues, setFormValues] = useState(initialValue);
+  const [isSubmit, setIsSubmit] = useState(false);
   const handleChange = (event) => {
     const { name, value } = event.target;
     setFormValues({ ...formValues, [name]: value });
@@ -37,11 +39,22 @@ function Login() {
   
 
   const handleSubmit = (e) => {
-
     e.preventDefault()
+    setFormErrors(validate(formValues));
+    console.log(formErrors);
+    setIsSubmit(true);
 
+    if(Object.keys(formErrors).length === 0 && isSubmit){
+console.log(isSubmit);
+   
    userLoginAPI(data)
       .then(function (response) {
+        if(response.data.username){
+          message.error(<span style={{color: 'black' }}>Sorry, User does not exist</span>)
+        }
+        if(response.data.password){
+          message.error(<span style={{color: 'black' }}>Sorry, Wrong password</span>)
+        }
         if(response.data.blocked){
           message.error(<span style={{color: 'black' }}>Sorry, You Have Been Blocked</span>)
         }
@@ -65,7 +78,7 @@ function Login() {
       .catch(function (error) {
         console.log(error);
       });
-    }
+    }}
 
     useEffect(() => {
       const userToken = localStorage.getItem("userToken");
@@ -73,8 +86,21 @@ function Login() {
         navigate("/home");   
       }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
+    }, [formErrors]); 
 
+    const validate = (values) => {
+      const errors = {}
+
+      if(!values.username){
+        errors.username = "Username is required"
+      }
+
+      if(!values.password){
+        errors.password = "Password is required"
+      }
+
+      return errors
+    }
    
   
   return (
@@ -89,16 +115,18 @@ function Login() {
               <h2 className="fw-bold mb-2 text-uppercase">Login</h2>
               <p className="text-white-50 mb-5">Please enter your login and password!</p>
 
-              <MDBInput wrapperClass='mb-4 mx-5 w-100' labelClass='text-white' label='Username' id='formControlLg' type='name' name='username'  value={formValues.username} onChange={handleChange} size="lg"/>
-              <MDBInput wrapperClass='mb-4 mx-5 w-100' labelClass='text-white' label='Password' id='formControlLg' type='password' name='password'  value={formValues.password} onChange={handleChange} size="lg"/>
+              <MDBInput wrapperClass='mb-4 mx-5 w-100' labelClass='text-white' label='Username' id='formControlname' type='name' name='username'  value={formValues.username} onChange={handleChange} size="lg"/>
+              <p className="error">{formErrors.username}</p>
+              <MDBInput wrapperClass='mb-4 mx-5 w-100' labelClass='text-white' label='Password' id='formControlpass' type='password' name='password'  value={formValues.password} onChange={handleChange} size="lg"/>
+              <p className="error">{formErrors.password}</p>
 
-              <p className="small mb-3 pb-lg-2"><a class="text-white-50" href="#!">Forgot password?</a></p>
+              <p className="small mb-3 pb-lg-2"><a className="text-white-50" href="#!">Forgot password?</a></p>
               <MDBBtn outline className='mx-2 px-5' color='white' size='lg'>
                 Login
               </MDBBtn>
 
               <div>
-                <p className="mb-0 mt-3">Don't have an account? <Link to="/signup" class="text-white-50 fw-bold">Sign Up</Link></p>
+                <p className="mb-0 mt-3">Don't have an account? <Link to="/signup" className="text-white-50 fw-bold">Sign Up</Link></p>
 
               </div>
             </MDBCardBody>

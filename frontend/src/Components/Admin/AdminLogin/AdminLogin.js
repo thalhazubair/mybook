@@ -9,7 +9,8 @@ import {
   MDBCardBody,
   MDBInput
 }
-from 'mdb-react-ui-kit';
+from 'mdb-react-ui-kit'
+import { message } from 'antd'
 import { useNavigate } from 'react-router-dom';
 import { adminLoginAPI } from '../../../Services/adminServices';
 
@@ -38,9 +39,10 @@ function AdminLogin() {
     
     adminLoginAPI(data)
       .then(function(response) {
-        console.log("fdakjsndkskndaksn");
+        if(response.data.admin){
+          message.error(<span style={{color: 'black' }}>Sorry, Admin does not exist</span>)
+        }
         if (response.data.success) {
-          console.log("dfdf");
           const jwtToken = response.data.token
           console.log(jwtToken);
           localStorage.setItem("adminToken",jwtToken)

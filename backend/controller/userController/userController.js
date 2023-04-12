@@ -8,45 +8,56 @@ const instance = require("../../middleware/razorpay");
 const crypto = require("crypto");
 const mongoose = require("mongoose");
 const cron = require('node-cron');
-const moment = require('moment');
-const { log } = require("console")
+
 
 module.exports = {
   getLogin: (req, res) => res.send("Hello World!"),
 
   postLogin: (req, res) => {
     try {
-      const { username, password } = req.body;
+      const { username, password } = req.body
       User.findOne({ username: username }).then((doc) => {
-        const blocked = doc.isBlocked;
+        if(doc == null){
+          res.send({ username: true });
+        }
+        else{
+        const blocked = doc.isBlocked; 
         if (blocked === false) {
           bcrypt.compare(req.body.password, doc.password).then((value) => {
-            const payload = {
-              username: username,
-            };
-            Jwt.sign(
-              payload,
-              process.env.USER_SECRET,
-              {
-                expiresIn: 360000,
-              },
-              (err, token) => {
-                if (err) {
-                  console.error("some error occured");
-                } else {
-                  res.json({
-                    success: true,
-                    doc: doc,
-                    token: `Bearer ${token}`,
-                  });
+            console.log(value)
+            if(value === false){
+              res.send({ password:true })
+            }else{
+              const payload = {
+                username: username,
+              };
+              Jwt.sign(
+                payload,
+                process.env.USER_SECRET,
+                {
+                  expiresIn: 360000,
+                },
+                (err, token) => {
+                  if (err) {
+                    console.error("some error occured");
+                  } else {
+                    res.json({
+                      success: true,
+                      doc: doc,
+                      token: `Bearer ${token}`,
+                    });
+                  }
                 }
-              }
-            );
-          });
+              )
+            }
+           
+          })
         } else {
           res.send({ blocked: true });
         }
-      });
+      }
+      })
+      .catch()
     } catch (error) {}
   },
 

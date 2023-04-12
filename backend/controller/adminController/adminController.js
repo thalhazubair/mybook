@@ -8,29 +8,38 @@ const { Book } = require("../../model/admin/books");
 module.exports = {
   postLogin: (req, res) => {
     try {
-      const { email, password } = req.body;
-      Admin.find({ email, password }).then(() => {
-        const payload = {
-          email: email,
-        };
-        Jwt.sign(
-          payload,
-          process.env.ADMIN_SECRET,
-          {
-            expiresIn: 3600000,
-          },
-          (err, token) => {
-            if (err) {
-              console.error("error occures");
-            } else {
-              res.send({
-                success: true,
-                token: `Bearer ${token}`,
-              });
-            }
+      const { email, password } = req.body
+      console.log(email)
+      console.log(password)
+      console.log(typeof(email))
+      Admin.findOne({ email:email , password:password }).then((doc) => {
+        console.log(doc);
+        if(doc == null){
+          res.send({ admin:true })
+        }else{
+          const payload = {
+            email: email,
           }
-        );
-      });
+          Jwt.sign(
+            payload,
+            process.env.ADMIN_SECRET,
+            {
+              expiresIn: 3600000,
+            },
+            (err, token) => {
+              if (err) {
+                console.error("error occures");
+              } else {
+                res.send({
+                  success: true,
+                  token: `Bearer ${token}`,
+                });
+              }
+            }
+          )
+        }
+        
+      })
     } catch (error) {
       console.log(error);
     }
