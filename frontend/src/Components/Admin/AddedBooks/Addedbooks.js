@@ -10,11 +10,13 @@ import {
   MDBPaginationItem,
   MDBPaginationLink,
 } from "mdb-react-ui-kit";
-import "./Books.css";
-import { bookReturnAPI, getBooks } from "../../../Services/adminServices";
+import "./Addedbooks.css";
+import { Link } from "react-router-dom";
+import { bookReturnAPI } from "../../../Services/adminServices";
+import { getAddedBookAPI } from "../../../Services/userServices"
 
 
-export default function Auction() {
+export default function AddedBooks() {
   const [book, setBook] = useState([]);
   const [search, setsearch] = useState("");
   const [filteredDocs, setFilteredDocs] = useState([]);
@@ -54,9 +56,9 @@ export default function Auction() {
     }
 
     useEffect(() => {
-      getBooks().then((res) => {
+      getAddedBookAPI().then((res) => {
         if (res.data.success) {
-          setBook(res.data.doc);
+          setBook(res.data.newBook);
           setReturnClicked(false);
         }
       });
@@ -82,7 +84,13 @@ export default function Auction() {
     pageNumbers.push(i);
   }
   return (
+    
     <div className="book-details">
+      <Link to="/admin/addbook">
+        <MDBBtn  rounded color='info' style={{display:'flex', marginBottom:'10px'}}>
+        ADD Book
+      </MDBBtn>
+      </Link>
       <div class="form-outline" style={{ display: "flex" }}>
         <input
           style={{
@@ -123,11 +131,14 @@ export default function Auction() {
                 <tr>
                   <td>
                     <div className="d-flex align-items-center">
-                      <img
-                        src={doc.imagelinks}
-                        alt=""
-                        style={{ width: "90px", height: "124px" }}
-                      />
+                    {doc.image.map((img, index) => (
+              <img
+              key={index}
+                src={img.url}
+                alt=''
+                style={{ width: '90px', height: '134px', marginRight:'5px'}}
+              />
+              ))}
                       <div className="ms-3">
                         
                         <p className="fw-bold mb-1">{doc.title}</p>
@@ -135,7 +146,7 @@ export default function Auction() {
                     </div>
                   </td>
                   <td>
-                  <p className="text-muted mb-0">{doc.authors && doc.authors.map(author => author.split(",")[0].trim()).join(", ")}</p>
+                  <p className="text-muted mb-0">{doc.author}</p>
                   </td>
                   <td>
               <MDBBadge color={doc.status === "rented out" ? "success" : "primary"} pill style={{fontSize:'10px'}}>
@@ -158,11 +169,14 @@ export default function Auction() {
                 <tr>
                   <td>
                     <div className="d-flex align-items-center">
-                      <img
-                        src={doc.imagelinks}
-                        alt=""
-                        style={{ width: "90px", height: "115px" }}
-                      />
+                    {doc.image.map((img, index) => (
+              <img
+              key={index}
+                src={img.url}
+                alt=''
+                style={{ width: '90px', height: '134px', marginRight:'5px'}}
+              />
+              ))}
                       <div className="ms-3">
                         <p className="fw-bold mb-1">{doc.title}</p>
                       </div>

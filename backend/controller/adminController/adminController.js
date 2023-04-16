@@ -4,6 +4,7 @@ const { Auction } = require("../../model/admin/auction");
 const { Admin } = require("../../model/admin/admin");
 const Jwt = require("jsonwebtoken");
 const { Book } = require("../../model/admin/books");
+const { Books} = require('../../model/admin/addBook');
 
 module.exports = {
   postLogin: (req, res) => {
@@ -121,6 +122,30 @@ module.exports = {
         starting_bid_price: data.price,  
         startdate: data.startdate,
         enddate: data.enddate,
+        image: image,
+      }).then(() => {
+        res.send({ success: true });
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  },
+
+  addBook: (req, res) => {
+    const data = req.body
+
+    const image = req.files.map((file) => {
+      return {
+        url: file.path,
+        filename: file.filename,
+      };
+    });
+
+    try { 
+      Books.create({
+        title: data.title,  
+        author: data.author,
+        genre: data.genre,  
         image: image,
       }).then(() => {
         res.send({ success: true });

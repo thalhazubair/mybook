@@ -9,6 +9,8 @@ import Solds from "../Pages/Admin/Sold";
 import Books from "../Pages/Admin/Books";
 import AdminVerification from "../Verification/adminVerification";
 import Dashboards from "../Pages/Admin/Dashboard";
+import AddBooks from "../Pages/Admin/Addbook";
+import AddedBooks from "../Pages/Admin/Addedbooks";
 
 
 
@@ -23,10 +25,13 @@ const AdminRoutes = ()=>{
       <Route path="/genre" element={<Genre/>}/>
       <Route path="/addgenre" element={<AddGenres/>}/>
       <Route path="/addauction" element={<AddAuctions/>}/>
+      <Route path="/addbook" element={<AddBooks/>}/>
       <Route path="/auction" element={<Markets/>}/>
       <Route path="/sold" element={<Solds/>}/>
       <Route path="/books" element={<Books/>}/>
       <Route path="/overview" element={<Dashboards/>}/>
+      <Route path="/addedbooks" element={<AddedBooks/>}/>
+
       </Route>
     
     </Routes>

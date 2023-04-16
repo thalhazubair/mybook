@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from "react";
 import "./Trending.css";
-import { getUserDetailsAPI, getBook } from '../../../Services/userServices';
+import { getUserDetailsAPI, getBook, getAddedBookAPI } from '../../../Services/userServices';
 import { message } from 'antd'
 import { useNavigate } from 'react-router-dom';
-import axios from "axios";
 
 function Trending() {
   const navigate = useNavigate()
   const [book, setBook] = useState([])
   const [favourite, setFavourite] = useState([])
+  const [newBook, setNewBook] = useState([])
+
   
 
   useEffect(() =>{
@@ -43,10 +44,18 @@ function Trending() {
 
         }
       }); 
-      
+
+      getAddedBookAPI()
+      .then((res)=>{
+if(res.data.success){
+setNewBook(res.data.newBook)
+}
+      })
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   },[])
+
+  console.log(newBook);
 
   return (
     <div>
@@ -78,6 +87,21 @@ function Trending() {
     <div class="d-flex flex-row overflow-auto flex-nowrap card-trending">
       {favourite.map((item, index)=>{
         let thumbnail = item.imagelinks;
+        return(
+          <div 
+          key={index} class="card card-body-trending"
+        > <img src={thumbnail} alt="" />
+        </div>
+        )
+      })}
+    </div>
+</div>
+
+<div class="container-fluid">
+    <h2 class="trending-novel-favourited">Recently Added</h2>
+    <div class="d-flex flex-row overflow-auto flex-nowrap card-trending">
+      {newBook.map((item, index)=>{
+        let thumbnail = item.image[0].url;
         return(
           <div 
           key={index} class="card card-body-trending"

@@ -1,6 +1,7 @@
 const { User } = require("../../model/user/register");
 const { Auction } = require("../../model/admin/auction");
 const { Book } = require("../../model/admin/books")
+const { Books } = require("../../model/admin/addBook")
 const mailer = require("../../middleware/otp");
 const bcrypt = require("bcrypt");
 const Jwt = require("jsonwebtoken");
@@ -289,7 +290,7 @@ module.exports = {
     });
   },
 
-  getListedBooks: (req, res,next) => {
+  getListedBooks: (req,res,next) => {
     try {
       Auction.find({ status: "Active" }).then((doc) => {
         Auction.find({ status: "Inactive" }).then((inactiveBooks) => {
@@ -523,7 +524,16 @@ module.exports = {
         res.send({success:true,doc:doc})
       })
     } catch (error) {
-      
+    }
+  },
+
+  getAddedBook: (req,res) => {
+    try {
+      Books.find()
+      .then((doc)=>{
+        res.send({success:true,newBook:doc})
+      })
+    } catch (error) {
     }
   },
 

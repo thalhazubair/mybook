@@ -1,0 +1,12 @@
+.admin-add-auction{
+    margin-left: 270px;
+    }
+    
+    
+    @media (max-width: 768px) {
+       
+        .admin-add-auction{
+           
+           margin-left: 40px;
+        }
+    }

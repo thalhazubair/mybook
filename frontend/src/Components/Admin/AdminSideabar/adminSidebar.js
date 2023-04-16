@@ -1,20 +1,14 @@
 import React, { useState } from 'react'
 import {FaBars } from 'react-icons/fa'
 import { AiFillHome } from "react-icons/ai";
-import { BiStore, BiTrendingUp, BiHistory, BiBookReader,BiLogOut } from 'react-icons/bi'
+import { BiStore, BiTrendingUp, BiHistory, BiBookReader } from 'react-icons/bi'
 import { BsCalendarDateFill } from 'react-icons/bs'
+import { GiWhiteBook } from 'react-icons/gi'
 import { CgProfile } from 'react-icons/cg'
-import { NavLink, useNavigate } from 'react-router-dom'
+import { NavLink} from 'react-router-dom' 
 import './adminSidebar.css'
 
 function SideBar({children}) {
-
-    const navigate = useNavigate()
-
-    const handleLogOut = ()=> {
-        localStorage.removeItem('adminToken');
-        navigate("/admin")
-      }
 
     const [isOpen] = useState(true)
     // const toggle = ()=> setIsOpen(!isOpen)
@@ -46,6 +40,11 @@ function SideBar({children}) {
             icon:<BiBookReader/>,
         },
         {
+            path:'/admin/addedbooks',
+            name:'Add Books',
+            icon:<GiWhiteBook/>,
+        },
+        {
             path:'/admin/addauction',
             name:'Add to Auction',
             icon:<BsCalendarDateFill/>,
@@ -69,13 +68,13 @@ function SideBar({children}) {
             </div>
             {
                 menuItem.map((item,index)=>(
-                <NavLink to={item.path} key={index} className='link' activeclassName='active'>
+                <NavLink to={item.path} key={index} className='admin-link' activeclassName='active'>
                     <div className='icon'>{item.icon}</div>
                     <div style={{display: isOpen ? "block" : "none"}} className='link_text'>{item.name}</div>
                     </NavLink>
                 ))
             }
-            <BiLogOut style={{margin:'10px auto'}} className='icon' onClick={handleLogOut}></BiLogOut>
+          
 
         </div>
         {children}

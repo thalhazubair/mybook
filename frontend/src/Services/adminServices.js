@@ -9,11 +9,11 @@ export const membersAPI = () => {
 }
 
 export const blockAPI = (id) => {
-    return axios.post(`/admin/block/${id}`)
+    return axios.patch(`/admin/block/${id}`)
 } 
 
 export const unBlockAPI = (id) => {
-    return axios.post(`/admin/unblock/${id}`)
+    return axios.patch(`/admin/unblock/${id}`)
 }
 
 export const auctionAPI = () => {
@@ -29,11 +29,11 @@ export const addGenreAPI = (data) => {
 }
 
 export const blockGenreAPI = (id) => {
-    return axios.post(`/admin/block_genre/${id}`)
+    return axios.patch(`/admin/block_genre/${id}`)
 }
 
 export const unBlockGenreAPI = (id) => {
-    return axios.post(`/admin/unblock_genre/${id}`)
+    return axios.patch(`/admin/unblock_genre/${id}`)
 }
 
 export const genreAuctionAPI = () => {
@@ -41,7 +41,6 @@ export const genreAuctionAPI = () => {
 }
 
 export const addAuctionAPI = (data,headers) => {
-    console.log(data);
     return axios.post('/admin/add_auction',data,headers)
 }
 
@@ -63,4 +62,8 @@ export const myBookAPI = () => {
 
 export const bookReturnAPI = (id) => {
     return axios.post('/admin/return_book',id)
+}
+
+export const addBookAPI = (data,headers) => {
+    return axios.post('/admin/add_book',data,headers)
 }

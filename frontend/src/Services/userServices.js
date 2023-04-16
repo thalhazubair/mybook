@@ -5,7 +5,7 @@ export const userLoginAPI = (data) => {
 }
 
 export const userEditAPI = (data) =>{
-    return axios.post('/user_edit',data)
+    return axios.patch('/user_edit',data)
 }
 
 export const getUserDetailsAPI = () => {
@@ -96,3 +96,7 @@ export const verifyOtpAPI = (data) => {
 export const resendOtpAPI = (data) => {
     return axios.post('/resendOtp',data) 
 }
+
+export const getAddedBookAPI = () => {
+    return axios.get('/books')
+} 

@@ -49,7 +49,7 @@ export default function Auction() {
               key={index}
                 src={img.url}
                 alt=''
-                style={{ width: '90px', height: '115px', marginRight:'5px'}}
+                style={{ width: '90px', height: '134px', marginRight:'5px'}}
               />
               ))}
               <div className='ms-3'>
