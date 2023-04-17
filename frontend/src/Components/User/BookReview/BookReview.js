@@ -31,9 +31,10 @@ function BookReview() {
   return (
     <div
       className="bookreviews"
-      style={{ display: "flex", justifyContent: "center", marginTop: "8rem" }}
+      style={{ display: "flex", justifyContent: "center", marginTop: "5rem" }}
     >
       <MDBContainer style={{display:'block'}}>
+      <h2 class="card-heading-novel">Book Reviews</h2>
         <MDBRow className="d-flex justify-content-center">
           <MDBCol>
             {book.map((item, index) => {

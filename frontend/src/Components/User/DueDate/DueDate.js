@@ -33,6 +33,7 @@ function DueDate() {
   return (
       
     <div className='recent'>
+      <h2 class="card-heading-novel pt-5">Due Date</h2>
     <Container className='recent-book'>
     <Row className='duedate-card-read' style={{ display: 'flex', flexWrap: 'wrap', justifyContent:'space-between' }}>
     {book.map((item, index)=>{
