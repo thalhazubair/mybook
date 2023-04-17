@@ -24,8 +24,7 @@ module.exports = {
         else{
         const blocked = doc.isBlocked; 
         if (blocked === false) {
-          bcrypt.compare(req.body.password, doc.password).then((value) => {
-            console.log(value)
+          bcrypt.compare(password, doc.password).then((value) => {
             if(value === false){
               res.send({ password:true })
             }else{
