@@ -130,7 +130,7 @@ function Bidding() {
                 paddingRight: "1rem",
               }}
             >
-              <h5 style={{ fontFamily: "monospace" }}>Starting Bid Price:</h5>
+              <h5 style={{ fontFamily: "monospace" }}>Starting BiD Price:</h5>
               <span style={{ color: "black" }}>${list.starting_bid_price}</span>
             </div>
             <div
