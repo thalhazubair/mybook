@@ -4,7 +4,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import './DueDate.css'
 import Container from 'react-bootstrap/Container';
-import axios from 'axios'
+
 import { getUserDetailsAPI } from '../../../Services/userServices';
 import { message } from 'antd'
 import { useNavigate } from 'react-router-dom';
@@ -13,7 +13,7 @@ import { useNavigate } from 'react-router-dom';
 function DueDate() {
    const navigate = useNavigate()
    const [book, setBookData] = useState([])
-   console.log(book);
+   
 
   useEffect(() =>{
  

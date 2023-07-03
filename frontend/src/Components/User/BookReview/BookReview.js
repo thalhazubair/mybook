@@ -27,7 +27,7 @@ function BookReview() {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   },[]) 
 
-  console.log(book);
+ 
   return (
     <div
       className="bookreviews"

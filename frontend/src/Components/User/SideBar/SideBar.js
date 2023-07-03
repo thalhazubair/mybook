@@ -7,7 +7,7 @@ import { CgProfile } from 'react-icons/cg'
 import { NavLink } from 'react-router-dom'
 import './Sidebar.css'
 
-function SideBar({children}) {
+function SideBar() {
     const [isOpen] = useState(true)
     const menuItem = [
 
@@ -66,7 +66,6 @@ function SideBar({children}) {
                 ))
             }
         </div>
-        {children}
     </>
   )
 }

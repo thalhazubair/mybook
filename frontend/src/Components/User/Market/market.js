@@ -43,7 +43,7 @@ function Market() {
             {bookData.map((item, index) => {
               
               let thumbnail = item.image[0].url; 
-              console.log(thumbnail);
+             
               return (
                 <div key={index} className="book-container-market">
                   <div

@@ -70,7 +70,7 @@ module.exports = {
       subject: "MyBook ACCOUNT REGISTRATION",
       html: `<p>YOUR OTP FOR REGISTERING IN MyBook IS ${mailer.OTP}</p>`,
     };
-    console.log(mailer.OTP);
+    
     const user = new User({
       fullname,
       username,
@@ -137,7 +137,7 @@ module.exports = {
       subject: "MyBook ACCOUNT REGISTRATION",
       html: `<p>YOUR OTP FOR REGISTERING IN MyBook IS ${mailer.OTP}</p>`,
     };
-    console.log(mailer.OTP);
+    
 
     mailer.mailTransporter.sendMail(mailDetails, (err) => {
       if (err) {

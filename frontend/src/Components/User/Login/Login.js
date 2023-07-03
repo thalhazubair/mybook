@@ -41,11 +41,11 @@ function Login() {
   const handleSubmit = (e) => {
     e.preventDefault()
     setFormErrors(validate(formValues));
-    console.log(formErrors);
+    
     setIsSubmit(true);
 
     if(Object.keys(formErrors).length === 0 && isSubmit){
-console.log(isSubmit);
+
    
    userLoginAPI(data)
       .then(function (response) {

@@ -44,13 +44,13 @@ function AdminLogin() {
         }
         if (response.data.success) {
           const jwtToken = response.data.token
-          console.log(jwtToken);
+          
           localStorage.setItem("adminToken",jwtToken)
           navigate('/admin/members')
         }
       })
       .catch(function (error) {
-        console.log(error);
+        
       });
     }
   return (

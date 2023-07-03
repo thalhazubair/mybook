@@ -45,7 +45,7 @@ function Recent() {
     getSoldBook()
     .then((res)=> {
       if(res.data.success){
-        console.log(res.data.doc);
+        
         setSold(res.data.doc)
       }
     })

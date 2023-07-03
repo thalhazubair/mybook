@@ -23,18 +23,18 @@ export default function AddedBooks() {
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage] = useState(5);
   const [returnClicked, setReturnClicked] = useState(false);
-  console.log(itemsPerPage);
+  
 
   const handleChange = (e) => {
     setsearch(e.target.value);
-    console.log(search);
+    
     if (e.target.value !== "") {
       const newPacientes = book.filter(
         (value) =>
           value.title &&
           value.title.toLowerCase().includes(e.target.value.toLowerCase())
       );
-      console.log(newPacientes);
+      
       setFilteredDocs(newPacientes);
     }
   };

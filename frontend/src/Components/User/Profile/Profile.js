@@ -25,7 +25,7 @@ export default function ProfileStatistics() {
         }
 
         if (res.data.success) {
-          console.log("Asdasda");
+          
           const data = res.data.doc;
           dispatch({
             type: "StoreUser",

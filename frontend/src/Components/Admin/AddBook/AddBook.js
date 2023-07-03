@@ -65,7 +65,7 @@ function AddBook() {
       }
     })
     .catch(function (error) {
-      console.log(error);
+      
     });
   }
 

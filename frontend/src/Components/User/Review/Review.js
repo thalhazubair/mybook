@@ -31,7 +31,7 @@ function AddReview({ show, setShow, bookTitle }) {
     bookTitle:bookTitle
   };
 
-  console.log(data);
+  
 
   const handleSubmit = (e) => {
     e.preventDefault();

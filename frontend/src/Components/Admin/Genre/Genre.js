@@ -74,7 +74,7 @@ function Genre() {
   }
 
   useEffect(()=>{
-    console.log("hiiii");
+    
     genreAPI()
     .then((res)=>{
     if(res.data.success){

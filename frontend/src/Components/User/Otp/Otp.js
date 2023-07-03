@@ -35,7 +35,7 @@ function Otp() {
     resendOtpAPI({
       email: location.state.email,
     }).then((response) => {
-        console.log(response);
+        
       });
   };
   useEffect(() => {

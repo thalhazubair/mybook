@@ -10,11 +10,8 @@ module.exports = {
   postLogin: (req, res) => {
     try {
       const { email, password } = req.body
-      console.log(email)
-      console.log(password)
-      console.log(typeof(email))
       Admin.findOne({ email:email , password:password }).then((doc) => {
-        console.log(doc);
+        
         if(doc == null){
           res.send({ admin:true })
         }else{
@@ -290,7 +287,7 @@ postReturnBook: async(req,res) => {
         })
         
       }else{
-        console.log("fail");
+        
         res.send({success:false})
       }
   

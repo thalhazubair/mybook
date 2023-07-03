@@ -3,11 +3,10 @@ const mongoose = require('mongoose');
 const cors = require("cors");
 const app = express();
 const port = 9000;
-// const jwt = require('jsonwebtoken');
 const dotenv = require("dotenv");
 const adminRouter = require('./routes/admin')
 const userRouter = require('./routes/user')
-const { bookReturnReminders } = require('./scheduler/scheduler')
+// const { bookReturnReminders } = require('./scheduler/scheduler')
 const errorHandler = require('./middleware/errorHandler')
 
 app.use(express.json())
@@ -21,7 +20,7 @@ mongoose.connect(process.env.MONGO_URL, {
     useUnifiedTopology: true
 });
 
-bookReturnReminders();  
+// bookReturnReminders();  
 
 app.use('/backend/admin',adminRouter)
 app.use('/backend',userRouter)

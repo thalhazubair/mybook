@@ -58,7 +58,7 @@ function Login() {
         password: formValues.password,
         confirmpassword: formValues.confirmpassword
       }).then(function (response) {
-          console.log(response);
+          
           if (response.data.success) {
             navigate('/otp',{
             state:{
@@ -71,19 +71,15 @@ function Login() {
             })
           }
           if(response.data.email){
-            console.log("exist");
             Swal.fire('Email already exist')
           }
           if(response.data.username){
-            console.log("exist");
             Swal.fire('Username already exist')
           }
           if(response.data.phone){
-            console.log("exist");
             Swal.fire('Phone already exist')
           }
           if(response.data.password){
-            console.log("exist");
             Swal.fire('Password not matching')
           }
         })
