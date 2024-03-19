@@ -94,7 +94,8 @@ module.exports = {
                 } else {
                   mailer.mailTransporter.sendMail(mailDetails, (err) => {
                     if (err) {
-                      console.log("error occurs");
+                      console.log(err);
+                      console.log("error occurssss");
                     } else {
                       res.send({ success: true });
                     }

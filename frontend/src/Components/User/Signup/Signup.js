@@ -58,7 +58,7 @@ function Login() {
         password: formValues.password,
         confirmpassword: formValues.confirmpassword
       }).then(function (response) {
-          
+          console.log(response);
           if (response.data.success) {
             navigate('/otp',{
             state:{
