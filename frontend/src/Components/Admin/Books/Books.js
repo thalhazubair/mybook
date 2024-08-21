@@ -13,7 +13,6 @@ import {
 import "./Books.css";
 import { bookReturnAPI, getBooks } from "../../../Services/adminServices";
 
-
 export default function Auction() {
   const [book, setBook] = useState([]);
   const [search, setsearch] = useState("");
@@ -21,18 +20,17 @@ export default function Auction() {
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage] = useState(5);
   const [returnClicked, setReturnClicked] = useState(false);
-  
 
   const handleChange = (e) => {
     setsearch(e.target.value);
-    
+
     if (e.target.value !== "") {
       const newPacientes = book.filter(
         (value) =>
           value.title &&
           value.title.toLowerCase().includes(e.target.value.toLowerCase())
       );
-      
+
       setFilteredDocs(newPacientes);
     }
   };
@@ -41,26 +39,25 @@ export default function Auction() {
     setCurrentPage(pageNumber);
   };
 
-  const handleReturn = (id)=>{
+  const handleReturn = (id) => {
+    bookReturnAPI({ id: id }).then((res) => {
+      if (res.data.success) {
+        message.success(
+          <span style={{ color: "black" }}>Successfully Returned</span>
+        );
+        setReturnClicked(true);
+      }
+    });
+  };
 
-       bookReturnAPI({id:id})
-       .then((res)=>{
-        if(res.data.success){
-          message.success(<span style={{color: 'black' }}>Successfully Returned</span>)
-          setReturnClicked(true)
-        }
-       })
-      
-    }
-
-    useEffect(() => {
-      getBooks().then((res) => {
-        if (res.data.success) {
-          setBook(res.data.doc);
-          setReturnClicked(false);
-        }
-      });
-    }, [returnClicked]);
+  useEffect(() => {
+    getBooks().then((res) => {
+      if (res.data.success) {
+        setBook(res.data.doc);
+        setReturnClicked(false);
+      }
+    });
+  }, [returnClicked]);
 
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
@@ -98,92 +95,117 @@ export default function Auction() {
             handleChange(e);
           }}
           placeholder="search"
+          className="text-white"
         />
       </div>
 
       <div className="table-container">
-      <MDBTable align="middle">
-        <MDBTableHead>
-          <tr>
-            <th
-              scope="col"
-              style={{ display: "flex", justifyContent: "center" }}
-            >
-              Name
-            </th>
-            <th scope="col">Author</th>
-            <th scope="col">Status</th>
-            <th scope='col'>Action</th>
-          </tr>
-        </MDBTableHead>
-        <MDBTableBody>
-          {search === "" &&
-            currentItems.map((doc, index) => {
-              return (
-                <tr>
-                  <td>
-                    <div className="d-flex align-items-center">
-                      <img
-                        src={doc.imagelinks}
-                        alt=""
-                        style={{ width: "90px", height: "124px" }}
-                      />
-                      <div className="ms-3">
-                        
-                        <p className="fw-bold mb-1">{doc.title}</p>
+        <MDBTable align="middle">
+          <MDBTableHead>
+            <tr>
+              <th
+                scope="col"
+                style={{ display: "flex", justifyContent: "center" }}
+                className="text-white"
+              >
+                Name
+              </th>
+              <th scope="col" className="text-white">
+                Author
+              </th>
+              <th scope="col" className="text-white">
+                Status
+              </th>
+              <th scope="col" className="text-white">
+                Action
+              </th>
+            </tr>
+          </MDBTableHead>
+          <MDBTableBody>
+            {search === "" &&
+              currentItems.map((doc, index) => {
+                return (
+                  <tr>
+                    <td>
+                      <div className="d-flex align-items-center">
+                        <img
+                          src={doc.imagelinks}
+                          alt=""
+                          style={{ width: "90px", height: "124px" }}
+                        />
+                        <div className="ms-3">
+                          <p className="fw-bold mb-1 text-white">{doc.title}</p>
+                        </div>
                       </div>
-                    </div>
-                  </td>
-                  <td>
-                  <p className="text-muted mb-0">{doc.authors && doc.authors.map(author => author.split(",")[0].trim()).join(", ")}</p>
-                  </td>
-                  <td>
-              <MDBBadge color={doc.status === "rented out" ? "success" : "primary"} pill style={{fontSize:'10px'}}>
-                  {doc.status}
-                </MDBBadge>
-              </td>
-              <td>
-                {
-                doc.status === "rented out" ?
-                <MDBBtn color='success' rounded size='sm' onClick={()=>handleReturn(doc.title)} >Return</MDBBtn> :
-                <></>
-                }
-              </td>
-                </tr>
-              );
-            })}
-          {search !== "" &&
-            filteredDocs.map((doc, index) => {
-              return (
-                <tr>
-                  <td>
-                    <div className="d-flex align-items-center">
-                      <img
-                        src={doc.imagelinks}
-                        alt=""
-                        style={{ width: "90px", height: "115px" }}
-                      />
-                      <div className="ms-3">
-                        <p className="fw-bold mb-1">{doc.title}</p>
+                    </td>
+                    <td>
+                      <p className="text-muted mb-0">
+                        {doc.authors &&
+                          doc.authors
+                            .map((author) => author.split(",")[0].trim())
+                            .join(", ")}
+                      </p>
+                    </td>
+                    <td>
+                      <MDBBadge
+                        color={
+                          doc.status === "rented out" ? "success" : "primary"
+                        }
+                        pill
+                        style={{ fontSize: "10px" }}
+                      >
+                        {doc.status}
+                      </MDBBadge>
+                    </td>
+                    <td>
+                      {doc.status === "rented out" ? (
+                        <MDBBtn
+                          color="success"
+                          rounded
+                          size="sm"
+                          onClick={() => handleReturn(doc.title)}
+                        >
+                          Return
+                        </MDBBtn>
+                      ) : (
+                        <></>
+                      )}
+                    </td>
+                  </tr>
+                );
+              })}
+            {search !== "" &&
+              filteredDocs.map((doc, index) => {
+                return (
+                  <tr>
+                    <td>
+                      <div className="d-flex align-items-center">
+                        <img
+                          src={doc.imagelinks}
+                          alt=""
+                          style={{ width: "90px", height: "115px" }}
+                        />
+                        <div className="ms-3">
+                          <p className="fw-bold mb-1 text-white">{doc.title}</p>
+                        </div>
                       </div>
-                    </div>
-                  </td>
-                  <td>
-                    <p className="text-muted mb-0">{doc.authors}</p>
-                  </td>
-                  <td>
-                    <p className="text-muted mb-0">{doc.categories}</p>
-                  </td>
-                </tr>
-              );
-            })}
-        </MDBTableBody>
-        {filteredDocs.length === 0 && search !== "" && (
-          <div>
-            <h1>No result</h1>
-          </div>
-        )}
-      </MDBTable>
+                    </td>
+                    <td>
+                      <p className="text-muted mb-0 text-white">{doc.authors}</p>
+                    </td>
+                    <td>
+                      <p className="text-muted mb-0 text-white">{doc.categories}</p>
+                    </td>
+                  </tr>
+                );
+              })}
+          </MDBTableBody>
+          {filteredDocs.length === 0 && search !== "" && (
+            <div>
+              <h1>No result</h1>
+            </div>
+          )}
+        </MDBTable>
       </div>
       <nav aria-label="...">
         <MDBPagination

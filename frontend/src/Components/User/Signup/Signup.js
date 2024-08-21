@@ -16,7 +16,7 @@ from 'mdb-react-ui-kit';
 import { Link, useNavigate } from 'react-router-dom';
 import { userSignupAPI } from '../../../Services/userServices';
 
-function Login() {
+function Signup() {
 
   const navigate = useNavigate()
 
@@ -179,4 +179,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default Signup;
